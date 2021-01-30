@@ -18,6 +18,10 @@
     padding: 0.15em 0.25em;
   }
 
+  a[href*="#action:"] .fas {
+    font-size: 1.1em;
+  }
+
   .emoji {
     height: 1.5rem;
     vertical-align: bottom;
