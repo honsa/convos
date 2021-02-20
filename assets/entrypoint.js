@@ -17,9 +17,9 @@ q(document, '.js-close-window', el => {
 });
 
 if (document.querySelector('meta[name="convos:start_app"][content="chat"]')) {
-  document.querySelector('.footer--wrapper').remove();
-  document.querySelector('.cms-main').remove();
-  const app = new App({target: document.body});
+  // document.querySelector('.footer--wrapper').remove();
+  // document.querySelector('.cms-main').remove();
+  // const app = new App({target: document.body});
 }
 else if (document.querySelector('meta[name="convos:start_app"][content="jitsi"]')) {
   document.querySelector('.footer--wrapper').remove();

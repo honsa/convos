@@ -56,24 +56,8 @@
     }
   }
 
-  .btn.is-hamburger {
-    font-size: 1.4rem;
-    margin-right: -0.5rem;
-    position: absolute;
-    top: 0.6rem;
-    right: 1rem;
-
-    span {
-      position: absolute;
-      top: 0.6rem;
-      right: 2.2rem;
-      font-size: 1rem;
-    }
-  }
-
   a,
-  .btn,
-  .btn.is-hamburger {
+  .btn {
     color: var(--sidebar-left-text);
   }
 }
@@ -101,12 +85,6 @@ body.no-js .cms-navbar__links .has-js {
   cursor: not-allowed;
 }
 
-#hamburger_checkbox_toggle {
-  opacity: 0;
-  position: absolute;
-  left: -100px;
-}
-
 /*
  * Navigation using hamburger menu
  *
@@ -121,7 +99,13 @@ body.no-js .cms-navbar__links .has-js {
     overflow: visible;
   }
 
-  .can-toggle + .cms-navbar__links {
+  .is-hamburger {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .is-hamburger + .cms-navbar__links {
     display: block;
     box-shadow: var(--chat-header-box-shadow);
     padding: 0 1rem;
@@ -149,21 +133,9 @@ body.no-js .cms-navbar__links .has-js {
     }
   }
 
-  #hamburger_checkbox_toggle:checked + label {
-    i {
-      transform: rotate(180deg);
-      transform-origin: center;
-      opacity: 0;
-    }
-
-    i:nth-child(2) {
-      opacity: 1;
-    }
-
-    & + .cms-navbar__links {
-      opacity: 1;
-      max-height: 80vh;
-    }
+  input:checked + .is-hamburger + .cms-navbar__links {
+    opacity: 1;
+    max-height: 80vh;
   }
 }
 
@@ -174,7 +146,7 @@ body.no-js .cms-navbar__links .has-js {
 @include if_screen(">two-columns") {
   .cms-navbar--wrapper {
     .cms-navbar__brand,
-    .cms-navbar .btn.is-hamburger {
+    .cms-navbar .is-hamburger {
       display: none;
     }
   }

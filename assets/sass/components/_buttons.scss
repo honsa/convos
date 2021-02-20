@@ -44,11 +44,6 @@
     transform-origin: center;
   }
 
-  &.is-active:after {
-    opacity: 1 !important;
-    transform: scale(1);
-  }
-
   &,
   &:focus {
     outline: 0; // Using box-shadow instead
@@ -63,27 +58,36 @@
     transition: all 0.2s ease-in;
   }
 
-  &.is-active .far,
-  &.is-active .fas {
-    transform: scale(0.1);
-  }
-
   .fa-times {
     @extend %hallow-child-fill-parent;
     opacity: 0;
     transform: scale(0);
   }
 
-  &.is-active .fa-times {
-    font-size: 0.75em;
-    opacity: 1;
-    transform: scale(1);
-  }
-
   .badge {
     position: absolute;
     bottom: -30%;
     right: -30%;
+  }
+}
+
+
+input:checked + .btn-hallow,
+.btn-hallow.is-active {
+  &:after {
+    opacity: 1 !important;
+    transform: scale(1);
+  }
+
+  .far,
+  .fas {
+    transform: scale(0.1);
+  }
+
+  .fa-times {
+    font-size: 0.75em;
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
