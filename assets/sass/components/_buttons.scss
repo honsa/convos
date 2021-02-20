@@ -6,6 +6,12 @@
   left: 0;
 }
 
+%hallow-focus-effect {
+  box-shadow: 0 0 0 1px currentColor;
+  transform: scale(1.4);
+  opacity: 0.6;
+}
+
 .badge {
   @include square_text(1.2rem);
   text-align: center;
@@ -38,20 +44,9 @@
     transform-origin: center;
   }
 
-  &:focus:after,
-  &:hover:after {
-    box-shadow: 0 0 0 1px currentColor;
-    transform: scale(1.4);
-    opacity: 0.6;
-  }
-
   &.is-active:after {
     opacity: 1 !important;
     transform: scale(1);
-  }
-
-  &:hover:after {
-    transform: scale(1.4);
   }
 
   &,
@@ -89,5 +84,18 @@
     position: absolute;
     bottom: -30%;
     right: -30%;
+  }
+}
+
+body.has-mouse {
+  .btn-hallow:hover:after {
+    @extend %hallow-focus-effect;
+    transform: scale(1.4);
+  }
+}
+
+body.no-touch {
+  &:focus:after {
+    @extend %hallow-focus-effect;
   }
 }
